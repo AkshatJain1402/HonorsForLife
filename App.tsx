@@ -77,6 +77,7 @@ import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import HomeScreen from './screens/HomeScreen';
 import {AuthProvider, useAuth} from './context/AuthContext';
+import VerifyOTP from './components/VerifyOTP';
 
 const Stack = createNativeStackNavigator();
 // App.tsx
@@ -90,6 +91,8 @@ const AuthStack = () => (
   <Stack.Navigator screenOptions={{headerShown: false}}>
     <Stack.Screen name="Login" component={LoginScreen} />
     <Stack.Screen name="Signup" component={SignupScreen} />
+    <Stack.Screen name="VerifyOTP" component={VerifyOTP} />
+    <Stack.Screen name="HomeScreen" component={HomeScreen} />
   </Stack.Navigator>
 );
 

@@ -61,8 +61,13 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
   };
 
   const logout = async () => {
-    await AsyncStorage.removeItem('userToken');
-    setUser(null);
+    try {
+      await AsyncStorage.multiRemove(['userToken', 'userDetails', 'user']);
+      setUser(null);
+    } catch (error) {
+      console.error('Logout failed:', error);
+      throw error; // Re-throw to handle in components
+    }
   };
 
   return (
